@@ -4,7 +4,10 @@ module Exercises where
 
 import Prelude
   (Int
+  ,Ord
+  ,Eq
   ,flip
+  ,undefined
   ,($)
   ,(.)
   ,(<$>)
@@ -75,3 +78,11 @@ buildG b es =
 transposeG :: Graph e -> Graph e
 transposeG g =
   buildG (bounds g) [(v, e, i) | (i, e, v) <- edges g]
+
+unfoldG :: (Ord s) => (s -> (n, [(e, s)])) -> s -> (Vertex, LabGraph n e)
+unfoldG =
+  undefined
+
+foldG :: (Eq r) => r -> (Vertex -> [(e, r)] -> r) -> Graph e -> Vertex -> r
+foldG =
+  undefined
